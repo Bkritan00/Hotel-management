@@ -106,7 +106,10 @@ scanf("%d", &id);
 while (fread(&g, sizeof(struct guest), 1, fp)) {
 if (g.guest_id == id) {
 found = 1;
-printf("Enter new name: ");
+printf("\nExisting Record:\n");
+printf("ID: %d\nName: %s\nRoom No: %d\nCheck-in: %s\nCheck-out: %s\n",g.guest_id, g.name, g.room_no, g.in_date, g.out_date);
+
+printf("\nEnter new name: ");
 scanf("%s", g.name);
 printf("Enter new Room Number: ");
 scanf("%d", &g.room_no);
@@ -128,8 +131,9 @@ if (found) {
 printf("Guest record updated successfully!\n");
 } else {
 printf("Guest ID not found.\n");
+    }
 }
-}
+
 
 // Function to delete a record
 void deleteRecord() {
